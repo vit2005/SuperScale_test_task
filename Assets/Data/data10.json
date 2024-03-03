@@ -1,0 +1,125 @@
+{
+	"ranking": [
+		{
+			"player": {
+					"uid": "d4dc2123-72ea-468e-97cf-aac3473951bc",
+					"username": "John Smith",
+					"isVip": true,
+					"countryCode": "US",
+					"characterColor": "#ff0000",
+					"characterIndex": 1
+			},
+			"ranking": 1,
+			"points": 99999
+		},
+		{
+			"player": {
+					"uid": "3c3faa24-584a-4882-bbdf-9fbfa566f881",
+					"username": "Davi Paula",
+					"isVip": false,
+					"countryCode": "BR",
+					"characterColor": "#21ff25",
+					"characterIndex": 2
+			},
+			"ranking": 2,
+			"points": 87352
+		},
+		{
+			"player": {
+					"uid": "879d9988-1397-4525-8507-955effd28072",
+					"username": "Yazhu Shui",
+					"isVip": true,
+					"countryCode": "CN",
+					"characterColor": "#ffdfa7",
+					"characterIndex": 3
+			},
+			"ranking": 3,
+			"points": 79543
+		},
+		{
+			"player": {
+					"uid": "52ecd533-215c-4ff6-92d4-12f2cba5373e",
+					"username": "Eric Leberecht",
+					"isVip": true,
+					"countryCode": "DE",
+					"characterColor": "ffcc00",
+					"characterIndex": 4
+			},
+			"ranking": 4,
+			"points": 75681
+		},
+		{
+			"player": {
+					"uid": "c4dd5e18-7b3d-4818-ae34-6d2654cc9451",
+					"username": "Paloma Remigio",
+					"isVip": false,
+					"countryCode": "ES",
+					"characterColor": "#a65e2e",
+					"characterIndex": 5
+			},
+			"ranking": 5,
+			"points": 69542
+		},
+		{
+			"player": {
+					"uid": "9c024628-f46f-4b1f-a0ad-09d3bdc0a55b",
+					"username": "Raymond Maximilien",
+					"isVip": false,
+					"countryCode": "FR",
+					"characterColor": "#b32428",
+					"characterIndex": 1
+			},
+			"ranking": 7,
+			"points": 57192
+		},
+		{
+			"player": {
+					"uid": "4d04d83e-34a7-460f-9b7a-2d1ae3a3391b",
+					"username": "Raffaello Guerino",
+					"isVip": false,
+					"countryCode": "IT",
+					"characterColor": "#c0ffee",
+					"characterIndex": 2
+			},
+			"ranking": 6,
+			"points": 63018
+		},
+		{
+			"player": {
+					"uid": "78fbd035-9cc5-4eb3-8d65-d0feab97a367",
+					"username": "Nelson Maisy",
+					"isVip": true,
+					"countryCode": "US",
+					"characterColor": "#7e7b52",
+					"characterIndex": 3
+			},
+			"ranking": 8,
+			"points": 49863
+		},
+		{
+			"player": {
+					"uid": "42768e14-4686-4b9c-8643-7c584f4f6437",
+					"username": "Odalis Rainerio",
+					"isVip": false,
+					"countryCode": "ES",
+					"characterColor": "#d6ae01",
+					"characterIndex": 4
+			},
+			"ranking": 9,
+			"points": 45555
+		},
+		{
+			"player": {
+					"uid": "7ec935ca-68b6-4da7-8c22-b7e12154823b",
+					"username": "Tristan Marc",
+					"isVip": false,
+					"countryCode": "FR",
+					"characterColor": "#00bb2d",
+					"characterIndex": 5
+			},
+			"ranking": 10,
+			"points": 29430
+		}
+	],
+	"playerUID": "d4dc2123-72ea-468e-97cf-aac3473951bc"
+}
