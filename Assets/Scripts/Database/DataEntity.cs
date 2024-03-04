@@ -1,23 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
+[Serializable]
 public class DataEntity
 {
-    public List<SingleRankData> ranking;
+    public List<Ranking> ranking;
+    public string playerUID;
 }
 
-public class SingleRankData
+[Serializable]
+public class Ranking
 {
-    public PlayerData player;
+    public Player player;
     public int ranking;
     public int points;
 }
 
-public class PlayerData
+[Serializable]
+public class Player
 {
-    public GUID uid;
+    public string uid;
     public string username;
     public bool isVip;
     public string countryCode;
