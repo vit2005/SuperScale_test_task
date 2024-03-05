@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 [Serializable]
-public class DataEntity
+public class LeaderboardData
 {
     public List<Ranking> ranking;
     public string playerUID;

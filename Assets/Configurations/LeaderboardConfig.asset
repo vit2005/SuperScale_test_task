@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607e35ab0534add40a224f8e7969848d, type: 3}
+  m_Name: LeaderboardConfig
+  m_EditorClassIdentifier: 
+  ranks:
+  - {fileID: 21300000, guid: 2af5ce9fd4980a241a4cb88a30192ac8, type: 3}
+  - {fileID: 21300000, guid: 65b87ef09064e1b43a27abd03e37f641, type: 3}
+  - {fileID: 21300000, guid: 47896b502760fab4488973c7651e5250, type: 3}
+  characters:
+  - {fileID: 21300000, guid: 089ebbdf2f226354298fc0bb2660e272, type: 3}
+  - {fileID: 21300000, guid: 029dfd07949c0ca4a845d601349bd7b6, type: 3}
+  - {fileID: 21300000, guid: 6b41c672eae13bf408aa9c75e08062bb, type: 3}
+  - {fileID: 21300000, guid: 4f9d66d3393fb6344a862394c9383270, type: 3}
+  - {fileID: 21300000, guid: cd894b6d95aae2a408da6bb9feed2b52, type: 3}
+  flags:
+  - {fileID: 21300000, guid: 66d1017b6aa5f1c4e9e37faf62028eb4, type: 3}
+  - {fileID: 21300000, guid: c2bc7aad1bac09c4f878fd3d3a464108, type: 3}
+  - {fileID: 21300000, guid: ab153529aa97f0646b982a5dc19fa9b9, type: 3}
+  - {fileID: 21300000, guid: 3c38c9241ebbcc1408e8b870c92dbf1d, type: 3}
+  - {fileID: 21300000, guid: b37839a238f76aa4f96f8a446086c703, type: 3}
+  - {fileID: 21300000, guid: d5790182bcc0983478e9fd603c913092, type: 3}
+  - {fileID: 21300000, guid: 0e181281bd0d5d44db9be2c9b4f1057d, type: 3}
+  flagsKeys:
+  - BR
+  - CN
+  - DE
+  - ES
+  - FR
+  - IT
+  - US

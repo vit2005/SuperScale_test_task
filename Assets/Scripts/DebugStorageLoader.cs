@@ -9,7 +9,7 @@ public class DebugStorageLoader : MonoBehaviour
 
     void Start()
     {
-        DataEntity data = storage.Load();
+        LeaderboardData data = storage.Load();
         foreach (var item in data.ranking)
         {
             Debug.Log(item.player.username);

@@ -7,6 +7,6 @@ public class ZenjectInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.Bind<IStorage>().To<JSONStorage>().AsSingle();
+        Container.Bind<IStorage>().To<OfflineJSONStorage>().AsSingle();
     }
 }
