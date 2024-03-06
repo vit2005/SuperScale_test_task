@@ -16,11 +16,14 @@ public class ListItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Points;
     [SerializeField] private GameObject IsVip;
 
-    [SerializeField] private GameObject Hover;
+    [SerializeField] private Image Hover;
+    [SerializeField] private float animationSpeed;
+
+    private float animationStartTime = 0f;
+    private bool isPointerEntered;
+
     private int _rank;
     public int Rank => _rank;
-
-    private readonly Color invisible = new Color(0f, 0f, 0f, 0f);
 
     public void Init(Sprite rankSprite, int rank, Sprite character, Color characterColor, 
         Sprite flag, string username, int points, bool isVip)
@@ -32,7 +35,7 @@ public class ListItem : MonoBehaviour
         }
         else
         {
-            RankImage.color = invisible;
+            RankImage.color = Color.clear;
         }
         
         RankText.text = rank.ToString();
@@ -44,9 +47,42 @@ public class ListItem : MonoBehaviour
         IsVip.SetActive(isVip);
     }
 
+    public void Update()
+    {
+        EvaluateAnimation();
+    }
+
+    private void EvaluateAnimation()
+    {
+        float opacity = Hover.color.a;
+        if (isPointerEntered && opacity < 1f)
+        {
+            opacity += Time.deltaTime * animationSpeed;
+            opacity = Mathf.Clamp01(opacity);
+            Hover.color = new Color(1f, 1f, 1f, opacity);
+        }
+        else if (!isPointerEntered && opacity > 0f)
+        {
+            opacity -= Time.deltaTime * animationSpeed;
+            opacity = Mathf.Clamp01(opacity);
+            Hover.color = new Color(1f, 1f, 1f, opacity);
+        }
+    }
+
+    public void OnPointerEnter()
+    {
+        isPointerEntered = true;
+    }
+
+    public void OnPointerExit()
+    {
+        isPointerEntered = false;
+    }
+
     public void Clear()
     {
         RankImage.color = Color.white;
+        Hover.color = Color.clear;
         Username.text = "";
     }
 }
