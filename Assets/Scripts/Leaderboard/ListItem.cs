@@ -16,8 +16,10 @@ public class ListItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Points;
     [SerializeField] private GameObject IsVip;
 
+    [SerializeField] private Image Main;
     [SerializeField] private Image Hover;
     [SerializeField] private float animationSpeed;
+    [SerializeField] private Animator animator;
 
     private float animationStartTime = 0f;
     private bool isPointerEntered;
@@ -49,10 +51,10 @@ public class ListItem : MonoBehaviour
 
     public void Update()
     {
-        EvaluateAnimation();
+        EvaluateHoverAnimation();
     }
 
-    private void EvaluateAnimation()
+    private void EvaluateHoverAnimation()
     {
         float opacity = Hover.color.a;
         if (isPointerEntered && opacity < 1f)
@@ -69,6 +71,11 @@ public class ListItem : MonoBehaviour
         }
     }
 
+    public void Show()
+    {
+        animator.SetTrigger("Show");
+    }
+
     public void OnPointerEnter()
     {
         isPointerEntered = true;
@@ -81,6 +88,7 @@ public class ListItem : MonoBehaviour
 
     public void Clear()
     {
+        Main.color = Color.clear;
         RankImage.color = Color.white;
         Hover.color = Color.clear;
         Username.text = "";

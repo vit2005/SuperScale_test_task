@@ -8,6 +8,7 @@ public class Leaderboard : MonoBehaviour
 {
     [Inject] private IStorage storage;
     [SerializeField] private ListItemObjectPool poolController;
+    [SerializeField] private Animator animator;
 
     public void Awake()
     {
@@ -19,12 +20,23 @@ public class Leaderboard : MonoBehaviour
         if (gameObject.activeSelf) return;
         gameObject.SetActive(true);
         LeaderboardData data = storage.Load();
-        poolController.Show(data);
+        poolController.Load(data);
+        animator.SetTrigger("Show");
     }
 
-    public void HideLeaderboard()
+    public void ShowPool()
+    {
+        poolController.Show();
+    }
+
+    public void HideLeaderboardClick()
     {
         poolController.Hide();
+        animator.SetTrigger("Hide");
+    }
+
+    public void DeactivateLeaderboard()
+    {
         gameObject.SetActive(false);
     }
 }

@@ -23,7 +23,7 @@ public class ListItemObjectPool : MonoBehaviorObjectPool<ListItem>
         _config.Init();
     }
 
-    public void Show(LeaderboardData data)
+    public void Load(LeaderboardData data)
     {
         _loaded = 0;
         rankings = new List<Ranking>(data.ranking);
@@ -42,6 +42,20 @@ public class ListItemObjectPool : MonoBehaviorObjectPool<ListItem>
                     
             item.Init(_config.GetRankSprite(r.ranking), r.ranking, _config.characters[r.player.characterIndex-1], color,
                 _config.GatFlag(r.player.countryCode), r.player.username, r.points, r.player.isVip);
+        }
+    }
+
+    public void Show()
+    {
+        StartCoroutine(ShowAnimation());
+    }
+
+    private IEnumerator ShowAnimation()
+    {
+        foreach (var i in activeObjects)
+        {
+            i.Show();
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
