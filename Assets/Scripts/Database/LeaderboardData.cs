@@ -8,20 +8,20 @@ using UnityEngine;
 [Serializable]
 public class LeaderboardData
 {
-    public List<Ranking> ranking;
+    public List<RankingData> ranking;
     public string playerUID;
 }
 
 [Serializable]
-public class Ranking
+public class RankingData
 {
-    public Player player;
+    public PlayerData player;
     public int ranking;
     public int points;
 }
 
 [Serializable]
-public class Player
+public class PlayerData
 {
     public string uid;
     public string username;

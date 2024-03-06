@@ -21,32 +21,30 @@ public class ListItem : MonoBehaviour
     [SerializeField] private float animationSpeed;
     [SerializeField] private Animator animator;
 
-    private float animationStartTime = 0f;
     private bool isPointerEntered;
 
     private int _rank;
     public int Rank => _rank;
 
-    public void Init(Sprite rankSprite, int rank, Sprite character, Color characterColor, 
-        Sprite flag, string username, int points, bool isVip)
+    public void Init(PlayerDataUI dataUI)
     {
-        _rank = rank;
-        if (rankSprite != null)
+        _rank = dataUI.rank;
+        if (dataUI.rankSprite != null)
         {
-            RankImage.sprite = rankSprite;
+            RankImage.sprite = dataUI.rankSprite;
         }
         else
         {
             RankImage.color = Color.clear;
         }
         
-        RankText.text = rank.ToString();
-        Avatar.sprite = character;
-        AvatarColor.color = characterColor;
-        CountryFlag.sprite = flag;
-        Username.text = username;
-        Points.text = string.Format("{0:# ###}", points);
-        IsVip.SetActive(isVip);
+        RankText.text = dataUI.rank.ToString();
+        Avatar.sprite = dataUI.character;
+        AvatarColor.color = dataUI.characterColor;
+        CountryFlag.sprite = dataUI.flag;
+        Username.text = dataUI.username;
+        Points.text = dataUI.points;
+        IsVip.SetActive(dataUI.isVip);
     }
 
     public void Update()
@@ -74,6 +72,11 @@ public class ListItem : MonoBehaviour
     public void Show()
     {
         animator.SetTrigger("Show");
+    }
+
+    public void Hide()
+    {
+        animator.SetTrigger("Hide");
     }
 
     public void OnPointerEnter()

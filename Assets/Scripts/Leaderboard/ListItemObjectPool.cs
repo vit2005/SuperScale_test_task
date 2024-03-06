@@ -14,8 +14,11 @@ public class ListItemObjectPool : MonoBehaviorObjectPool<ListItem>
     public override ListItem prefab => _prefab;
     public override Transform parent => transform;
 
-    private List<Ranking> rankings;
+    private List<RankingData> rankings;
     private int _loaded;
+
+    private const float SHOW_ANIMATION_DELAY = 0.05f;
+    private const float HIDE_ANIMATION_DELAY = 0.02f;
 
     public override void Init()
     {
@@ -26,38 +29,16 @@ public class ListItemObjectPool : MonoBehaviorObjectPool<ListItem>
     public void Load(LeaderboardData data)
     {
         _loaded = 0;
-        rankings = new List<Ranking>(data.ranking);
+        rankings = new List<RankingData>(data.ranking);
         foreach (var r in rankings)
         {
+            var dataUI = new PlayerDataUI(r, _config);
             pool.Get(out ListItem item);
-            Color color;
-            if (!UnityEngine.ColorUtility.TryParseHtmlString(r.player.characterColor, out color))
-            {
-                if (!UnityEngine.ColorUtility.TryParseHtmlString("#" + r.player.characterColor, out color))
-                {
-                    Debug.LogError("Invalid color data");
-                    continue;
-                }
-            }
-                    
-            item.Init(_config.GetRankSprite(r.ranking), r.ranking, _config.characters[r.player.characterIndex-1], color,
-                _config.GatFlag(r.player.countryCode), r.player.username, r.points, r.player.isVip);
+            item.Init(dataUI);
         }
     }
 
-    public void Show()
-    {
-        StartCoroutine(ShowAnimation());
-    }
-
-    private IEnumerator ShowAnimation()
-    {
-        foreach (var i in activeObjects)
-        {
-            i.Show();
-            yield return new WaitForSeconds(0.05f);
-        }
-    }
+    #region Pool implementation
 
     protected override void OnTakeFromPool(ListItem item)
     {
@@ -80,8 +61,37 @@ public class ListItemObjectPool : MonoBehaviorObjectPool<ListItem>
         item.Clear();
     }
 
-    public void Hide()
+    #endregion
+
+    #region Animations
+    public void Show()
     {
-        base.ClearPool();
+        StartCoroutine(ShowAnimation());
     }
+
+    private IEnumerator ShowAnimation()
+    {
+        foreach (var i in activeObjects)
+        {
+            i.Show();
+            yield return new WaitForSeconds(SHOW_ANIMATION_DELAY);
+        }
+    }
+
+    public void Hide(Action onAnimationFinished)
+    {
+        StartCoroutine(HideAnimation(onAnimationFinished));
+    }
+
+    private IEnumerator HideAnimation(Action onAnimationFinished)
+    {
+        foreach (var i in activeObjects)
+        {
+            i.Hide();
+            yield return new WaitForSeconds(HIDE_ANIMATION_DELAY);
+        }
+        base.ClearPool();
+        onAnimationFinished?.Invoke();
+    }
+    #endregion
 }

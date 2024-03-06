@@ -31,7 +31,7 @@ public class Leaderboard : MonoBehaviour
 
     public void HideLeaderboardClick()
     {
-        poolController.Hide();
+        poolController.Hide(DeactivateLeaderboard);
         animator.SetTrigger("Hide");
     }
 
